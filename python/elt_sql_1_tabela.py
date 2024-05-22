@@ -2,6 +2,7 @@ import pandas as pd
 from azure.identity import DefaultAzureCredential
 from azure.storage.filedatalake import DataLakeServiceClient
 from azure.core.exceptions import ResourceExistsError
+from urllib.parse import quote_plus
 
 import os
 from dotenv import load_dotenv
@@ -15,7 +16,7 @@ database = os.getenv("SQL_DATABASE")
 schema = os.getenv("SQL_SCHEMA")
 table_name = os.getenv("SQL_TABLE_NAME")
 username = os.getenv("SQL_USERNAME")
-password = os.getenv("SQL_PASSWORD")
+password = quote_plus(os.getenv("SQL_PASSWORD"))
 
 # Configurações do Azure Data Lake Storage
 account_name = os.getenv("ADLS_ACCOUNT_NAME")
