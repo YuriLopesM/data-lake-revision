@@ -7,8 +7,8 @@ Visit [README-ptbr.md](./README-ptbr.md) to the Portuguese version.
 
 ## Table of Contents
 
-- [Pre-requisites](#📚-pre-requisites)
-- [Steps](#👣-steps)
+- [Pre-requisites](#-pre-requisites)
+- [Steps](#-steps)
 
 
 ## 📚 Pre-requisites

@@ -5,8 +5,8 @@ Baseado no [repositório do professor](https://github.com/jlsilva01/adls-azure) 
 
 ## Table of Contents
 
-- [Pré-requisitos](#📚-pré-requisitos)
-- [Passos](#👣-passos)
+- [Pre-requisites](#-pre-requisites)
+- [Steps](#-steps)
 
 
 ## 📚 Pré-requisitos
