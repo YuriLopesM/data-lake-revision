@@ -3,6 +3,8 @@ Repo to revisit the core conceptions of Data Lake, study for Data Engineer test.
 
 Based on the [teacher repo](https://github.com/jlsilva01/adls-azure) and other recurses offered in class.
 
+Visit [README-ptbr.md](./README-ptbr.md) to the Portuguese version.
+
 ## Table of Contents
 
 - [Pre-requisites](#📚-pre-requisites)
