@@ -3,6 +3,7 @@ from azure.identity import DefaultAzureCredential
 from azure.storage.filedatalake import DataLakeServiceClient
 from azure.core.exceptions import ResourceExistsError
 from sqlalchemy import create_engine
+from urllib.parse import quote_plus
 
 import os
 from dotenv import load_dotenv
@@ -21,7 +22,7 @@ server = os.getenv("SQL_SERVER")
 database = os.getenv("SQL_DATABASE")
 schema = os.getenv("SQL_SCHEMA")
 username = os.getenv("SQL_USERNAME")
-password = os.getenv("SQL_PASSWORD")
+password = quote_plus(os.getenv("SQL_PASSWORD"))
 
 # Conectar ao SQL Server
 conn_str = f"mssql+pyodbc://{username}:{password}@{server}/{database}?driver=ODBC+Driver+17+for+SQL+Server"

@@ -5,22 +5,22 @@ Based on the [teacher repo](https://github.com/jlsilva01/adls-azure) and other r
 
 ## Table of Contents
 
-- [Pre-requisites](#pre-requisites)
-- [Steps](#steps)
-- []()
+- [Pre-requisites](#📚-pre-requisites)
+- [Steps](#👣-steps)
 
 
-## Pre-requisites
+## 📚 Pre-requisites
 
 - Docker
 - SQL Server Management Studio (SSMS)
+- Python/pip, PyEnv, Pipx, Poetry (use the [teacher guide](https://storage.satc.edu.br/arquivos/docentes/4906/20241/files/ED/Python%20ED/Python%20para%20Engenharia%20de%20Dados.pdf) for completed install explication)
 - Azure CLI
 - Visual Studio Code _(or any editor)_
 - Terraform
 - Microsoft Learning account (using active Sandbox)
 - [Databricks Community](https://community.databricks.com/) Account
 
-## Steps
+## 👣 Steps
 
 ##### 1. Database configuration
 
@@ -64,7 +64,7 @@ az group list -o table
 
 ```terraform
 variable "resource_group_name" {
-  default = "learn-877e311a-66ab-401b-9372-06326c9bd083"
+  default = "learn-9b3e07c7-1725-4464-9b6a-b0fee4cb4c0a"
 }
 ```
 
@@ -105,10 +105,66 @@ Log in [portal.azure.com](https://portal.azure.com/) and check the created ADLS.
 
 ##### 7. Destroy created recurses 
 
-**⚠️ Caution:** Only if you will not continue to the next steps ⚠️
+**⚠️ Caution:** Only use this if you will not continue to the next steps ⚠️
 
 ```bash
 terraform destroy
 ```
 
 > <b>Note:</b> To use `apply` and `destroy` without confirmation, use `-auto-approve` tag (use for your own risk).
+
+##### 8. Env
+
+###### 8.1. Copy env file
+```bash
+# Windows
+copy .env.example .env
+
+# Linux
+cp .env.example .env
+```
+
+###### 8.2. Fill the following `.env` variables:
+
+
+`ADLS_ACCOUNT_NAME=datalakebf6f21398b44ea7b`
+
+> Available in https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts
+
+`ADLS_SAS_TOKEN=sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupyx&se=2024-05-10T03:35:53Z&st=2024-05-09T19:35:53Z&spr=https&sig=SPucZ0LhY4PWAiIyzIhATo5sydM5WPyph%2Bl2javSi9k%3D`
+
+> Within the previously selected storage account, simply access "Shared access signature", fill in all the fields under "Allowed resource types" and click **Generate connection and SAS string**. <br><br> Copy the **SAS Token** created and paste it into this variable
+
+##### 9. Python
+
+###### 9.1 Install dependencies
+
+```bash
+cd python
+
+poetry install
+```
+
+###### 9.2 Run the N tables script
+
+```bash
+poetry run python elt_sql_n_tabelas.py
+```
+
+##### 10. Databricks
+
+###### 10.1 Create a new cluster
+
+On the menu item **Compute**, click in **Create compute**. Type a name to your new cluster (no need of more configurations).
+
+###### 10.2 Import the notebooks
+
+On the menu item **Workspace**, click in **Home**. Click in the arrow icon, and select **Import**. 
+
+Individually, import all `.dbc` files under the folder `databricks`.
+
+###### 10.3 Run the notebooks
+
+Run the notebooks. The data has to go through Bronze, Silver and Gold layers, starting on the Landing-zone and applying all the transformations for each step.
+
+Don't forget to, in each notebook, adjust the variables of `storageAccountName` and `sasToken`
