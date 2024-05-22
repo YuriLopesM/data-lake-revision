@@ -26,7 +26,7 @@ Based on the [teacher repo](https://github.com/jlsilva01/adls-azure) and other r
 
 ###### 1.1 Create a Docker container with SQL Server
 ```bash
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=satc@2023" -p 1433:1433 --name satc-sql-server --hostname satc-sql-server -d mcr.microsoft.com/mssql/server:2022-latest 5750e36a686db1ba82783d97975c061aef10c776eb8463cb93e0128b9a37fff5
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=satc@2023" -p 1433:1433 --name satc-sql-server --hostname satc-sql-server -d mcr.microsoft.com/mssql/server:2022-latest
 ```
 
 ###### 1.2 Connect to SSMS 
