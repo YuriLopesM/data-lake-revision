@@ -43,7 +43,7 @@ password:    satc@2023
 
 ##### 1.3 Execute the database creation script
 
-In SSMS, execute `create_cars_database.sql` on `scripts` folder
+In SSMS, execute `create_cars_database.sql` on `scripts` folder --> I remove this, explained in the commit.
 
 ##### 2. Active a test subscription
 [MS Learn Sandbox (Restrict Area)](https://learn.microsoft.com/pt-br/training/modules/develop-test-deploy-azure-functions-with-core-tools/5-exercise-publish-function-core-tools?ns-enrollment-type=learningpath&ns-enrollment-id=learn.create-serverless-applications) - Concierge Subscription _(4 hours limit)_ 
